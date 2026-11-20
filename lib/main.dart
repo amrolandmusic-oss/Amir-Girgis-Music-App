@@ -2,16 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:audio_service/audio_service.dart';
-import 'package:just_audio_background/just_audio_background.dart';
 
 const Color gold = Color(0xFFD6B45A);
 const Color bg = Color(0xFF090909);
 const Color panel = Color(0xFF171717);
 
-bool backgroundAudioReady = false;
-
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const AmirGirgisApp());
+}
   WidgetsFlutterBinding.ensureInitialized();
 
   try {
