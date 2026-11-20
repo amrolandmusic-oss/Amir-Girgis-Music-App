@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -9,22 +7,6 @@ const Color panel = Color(0xFF171717);
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const AmirGirgisApp());
-}
-  WidgetsFlutterBinding.ensureInitialized();
-
-  try {
-    await JustAudioBackground.init(
-      androidNotificationChannelId: 'com.amir.girgis.music.audio',
-      androidNotificationChannelName: 'Amir Girgis Music',
-      androidNotificationOngoing: true,
-    );
-
-    backgroundAudioReady = true;
-  } catch (error) {
-    debugPrint('Background audio initialization failed: $error');
-  }
-
   runApp(const AmirGirgisApp());
 }
 
@@ -176,23 +158,8 @@ class _MusicHomePageState extends State<MusicHomePage> {
     try {
       final track = tracks[index];
 
-      final mediaItem = MediaItem(
-        id: track.asset,
-        title: track.title,
-        artist: 'Amir Girgis',
-        album: 'Amir Girgis Music',
-        artUri: Uri.parse(
-          'https://github.com/amrolandmusic-oss/Amir-Girgis-Music-App/blob/main/assets/images/songs_artwork.png?raw=true',
-        ),
-      );
-
-      final source = AudioSource.asset(
-        track.asset,
-        tag: backgroundAudioReady ? mediaItem : null,
-      );
-
-      await player.setAudioSource(source);
-
+     final source = AudioSource.asset(track.asset);
+await player.setAudioSource(source);
       if (!mounted) return;
 
       setState(() {
