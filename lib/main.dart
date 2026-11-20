@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 
-Future<void> 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -19,16 +19,6 @@ Future<void> main() async {
 
   runApp(const AmirGirgisApp());
 }
- async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await JustAudioBackground.init(
-    androidNotificationChannelId: 'com.amir.girgis.music.audio',
-    androidNotificationChannelName: 'Amir Girgis Music',
-    androidNotificationOngoing: true,
-  );
-  runApp(const AmirGirgisApp());
-}
-
 const gold = Color(0xFFD6B45A);
 const bg = Color(0xFF090909);
 const panel = Color(0xFF171717);
